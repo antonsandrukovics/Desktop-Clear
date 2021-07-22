@@ -18,10 +18,27 @@ namespace desktopClear.UserControls.SortingControls
             InitializeComponent();
             ListBoxFilling();
         }
-
+        private void ListBoxFilling()
+        {
+            foreach (var item in RemovingRepetitionExtension(SortingDetails.AllFilesPath))
+            {
+                checkedListBox1.Items.Add(item);
+            }
+        }
         private List<string> RemovingRepetitionExtension(List<string> list)
         {
             return GetOnlyExtension(list).Distinct().ToList(); //Remove repetition elements
+        }
+        private List<string> GetOnlyExtension(List<string> list)
+        {
+            List<string> onlyExtensionList = new List<string>();
+
+            foreach (var item in list)
+            {
+                string fileExtension = Directory.Exists(item) ? "folder" : Path.GetExtension(item);
+                onlyExtensionList.Add(fileExtension);
+            }
+            return onlyExtensionList;
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -39,6 +56,19 @@ namespace desktopClear.UserControls.SortingControls
             else
             {
                 MessageBox.Show("Выберите форматы из списка");
+            }
+        }
+        private void AddExtensionToListView(string strExten)
+        {
+            string[] row = { "Новая папка", strExten };
+            ListViewItem itm = new ListViewItem(row);
+            listView1.Items.Add(itm);
+        }
+        private void RemoveCheckedItems(List<string> listToRemove)
+        {
+            foreach (var item in listToRemove)
+            {
+                checkedListBox1.Items.Remove(item);
             }
         }
         private void button1_Click(object sender, EventArgs e)
@@ -61,19 +91,9 @@ namespace desktopClear.UserControls.SortingControls
                 MessageBox.Show("Добавте сортировачные папки!");
             }
         }
-
-        
-
-        private List<string> GetOnlyExtension(List<string> list)
+        private string GetExtensionFromListView(int rowCount)
         {
-            List<string> onlyExtensionList = new List<string>();
-
-            foreach (var item in list)
-            {
-                string fileExtension = Directory.Exists(item) ? "folder" : Path.GetExtension(item);
-                onlyExtensionList.Add(fileExtension);
-            }
-            return onlyExtensionList;
+            return listView1.Items[rowCount].SubItems[1].Text;
         }
         private void button2_Click(object sender, EventArgs e)
         {
@@ -87,35 +107,6 @@ namespace desktopClear.UserControls.SortingControls
                 MessageBox.Show("error!");
             }
         }
-        private void ListBoxFilling()
-        {
-            foreach (var item in RemovingRepetitionExtension(SortingDetails.AllFilesPath))
-            {
-                checkedListBox1.Items.Add(item);
-            }
-        }
-        private void AddExtensionToListView(string strExten)
-        {
-            string[] row = { "Новая папка", strExten };
-            ListViewItem itm = new ListViewItem(row);
-            listView1.Items.Add(itm);
-        }
-
-        private void RemoveCheckedItems(List<string> listToRemove)
-        {
-            foreach (var item in listToRemove)
-            {
-                checkedListBox1.Items.Remove(item);
-            }
-        }
-
-        
-
-        private string GetExtensionFromListView(int rowCount) 
-        {
-            return listView1.Items[rowCount].SubItems[1].Text;
-        }
-
         
     }
 }

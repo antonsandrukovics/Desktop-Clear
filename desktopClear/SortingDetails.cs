@@ -16,6 +16,30 @@ namespace desktopClear
         private static List<string> allFilesPath;
         private static DateTime lastSortingTime;
 
+        public static List<string> AllFilesPath
+        {
+            get { return allFilesPath; }
+            set { allFilesPath = value; }
+        }
+        public static string LastSortingTime
+        {
+            get { return lastSortingTime.ToString(); }
+        }
+        public static string FolderForSortedFiles
+        {
+            get { return folderForSortedFiles; }
+            set { folderForSortedFiles = value; }
+        }
+        public static void AddNewFolderName(string value)
+        {
+            listOfNewFolderNames.Add(value);
+        }
+
+        public static void AddNewExtensionName(string value)
+        {
+            listOfFileFormatNames.Add(value);
+        }
+
         public static void StartSorting()
         {
             CreateNewFolders();
@@ -85,29 +109,5 @@ namespace desktopClear
             string[] arr = listOfFileFormatNames[index].Split(',');
             return arr;
         }
-        public static List<string> AllFilesPath
-        {
-            get { return allFilesPath; }
-            set { allFilesPath = value; }
-        }
-        public static string LastSortingTime
-        {
-            get { return lastSortingTime.ToString(); }
-        }
-        public static string FolderForSortedFiles
-        {
-            get { return folderForSortedFiles; }
-            set { folderForSortedFiles = value; }
-        }
-        public static void AddNewFolderName(string value)
-        {
-            listOfNewFolderNames.Add(value);
-        }
-
-        public static void AddNewExtensionName(string value)
-        {
-            listOfFileFormatNames.Add(value);
-        }
-
     }
 }

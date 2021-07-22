@@ -34,11 +34,52 @@ namespace desktopClear
                 FillTheChekedListBox(allFilesNameList);
             }
         }
+        private void FillTheChekedListBox(List<string> arrWithFileName)
+        {
+            checkedListBox1.Items.Clear();
+            foreach (var file in arrWithFileName)
+            {
+                checkedListBox1.Items.Add(Path.GetFileName(file));
+            }
+        }
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (allFilesNameList != null && allFilesNameList.Count > 0)
+            {
+                SelectAllInCheckBoxList();
+            }
+            else
+            {
+                MessageBox.Show("Выберите папку с файлами!!!");
+            }
+        }
         private void SelectAllInCheckBoxList()
         {
             for (int i = 0; i < checkedListBox1.Items.Count; i++)
             {
                 checkedListBox1.SetItemChecked(i, true);
+            }
+        }
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (checkedListBox1.CheckedItems.Count > 0)
+            {
+                DialogResult result = MessageBox.Show(
+                    "Вы действительно хотите удалить выбранные элементы?",
+                    "Предупреждение",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Warning,
+                    MessageBoxDefaultButton.Button1,
+                    MessageBoxOptions.RightAlign);
+
+                if (result == DialogResult.Yes)
+                {
+                    DeleteSelectedItems();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Выберите элементы для удаления!!!");
             }
         }
 
@@ -73,40 +114,14 @@ namespace desktopClear
             }
             RemoveElementFromChekedList(itemsToRemove);
         }
-
-        private void button1_Click(object sender, EventArgs e)
+        private void RemoveElementFromChekedList(List<string> itemsToRemove)
         {
-            if (allFilesNameList != null && allFilesNameList.Count > 0)
+            foreach (var item in itemsToRemove)
             {
-                SelectAllInCheckBoxList();
-            }
-            else
-            {
-                MessageBox.Show("Выберите папку с файлами!!!");
+                checkedListBox1.Items.Remove(item);
             }
         }
-        private void button2_Click(object sender, EventArgs e)
-        {
-            if (checkedListBox1.CheckedItems.Count > 0)
-            {
-                DialogResult result = MessageBox.Show(
-                    "Вы действительно хотите удалить выбранные элементы?",
-                    "Предупреждение",
-                    MessageBoxButtons.YesNo,
-                    MessageBoxIcon.Warning,
-                    MessageBoxDefaultButton.Button1,
-                    MessageBoxOptions.RightAlign);
 
-                if (result == DialogResult.Yes)
-                {
-                    DeleteSelectedItems();
-                }
-            }
-            else
-            {
-                MessageBox.Show("Выберите элементы для удаления!!!");
-            }
-        }
         private void button3_Click(object sender, EventArgs e)
         {
             if (checkedListBox1.CheckedItems.Count != checkedListBox1.Items.Count)
@@ -124,25 +139,6 @@ namespace desktopClear
                 MessageBox.Show("Вы выбрали все файлы, количество файлов для сортировки ровно нулю!");
             }
         }
-
-        private void FillTheChekedListBox(List<string> arrWithFileName)
-        {
-            checkedListBox1.Items.Clear();
-            foreach (var file in arrWithFileName)
-            {
-                checkedListBox1.Items.Add(Path.GetFileName(file));
-            }
-        }
-        
-
-        
-        private void RemoveElementFromChekedList(List<string> itemsToRemove)
-        {
-            foreach (var item in itemsToRemove)
-            {
-                checkedListBox1.Items.Remove(item);
-            }
-        }
         private void SwitchOffAllObjects()
         {
             button3.Enabled = false;
@@ -152,7 +148,6 @@ namespace desktopClear
             buttonChoseDirectory.Enabled = false;
             textBoxDirectoryName.Enabled = false;
         }
-
         private List<string> GetUnChekedItemList()
         {
             List<string> unChekedList = new List<string>();
