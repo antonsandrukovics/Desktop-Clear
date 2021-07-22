@@ -19,29 +19,9 @@ namespace desktopClear.UserControls.SortingControls
             ListBoxFilling();
         }
 
-        private void ListBoxFilling()
-        {
-            foreach (var item in RemovingRepetitionExtension(SortingDetails.AllFilesPath))
-            {
-                checkedListBox1.Items.Add(item);
-            }
-        }
-
         private List<string> RemovingRepetitionExtension(List<string> list)
         {
             return GetOnlyExtension(list).Distinct().ToList(); //Remove repetition elements
-        }
-
-        private List<string> GetOnlyExtension(List<string> list)
-        {
-            List<string> onlyExtensionList = new List<string>();
-
-            foreach (var item in list)
-            {
-                string fileExtension = Directory.Exists(item) ? "folder" : Path.GetExtension(item);
-                onlyExtensionList.Add(fileExtension);
-            }
-            return onlyExtensionList;
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -54,14 +34,66 @@ namespace desktopClear.UserControls.SortingControls
                     listToRemove.Add(item.ToString());
                 }
                 AddExtensionToListView(string.Join(", ", listToRemove));
-                RemoveCheckedItems(listToRemove); 
+                RemoveCheckedItems(listToRemove);
             }
             else
             {
                 MessageBox.Show("Выберите форматы из списка");
             }
         }
+        private void button1_Click(object sender, EventArgs e)
+        {
+            int arrLength = listView1.Items.Count;
 
+            if (arrLength != 0)
+            {
+                for (int i = 0; i < arrLength; i++)
+                {
+                    string extensionName = GetExtensionFromListView(i);
+                    SortingDetails.AddNewExtensionName(extensionName);
+                    string folderName = listView1.Items[i].SubItems[0].Text;
+                    SortingDetails.AddNewFolderName(folderName);
+                }
+                listView1.Enabled = false;
+            }
+            else
+            {
+                MessageBox.Show("Добавте сортировачные папки!");
+            }
+        }
+
+        
+
+        private List<string> GetOnlyExtension(List<string> list)
+        {
+            List<string> onlyExtensionList = new List<string>();
+
+            foreach (var item in list)
+            {
+                string fileExtension = Directory.Exists(item) ? "folder" : Path.GetExtension(item);
+                onlyExtensionList.Add(fileExtension);
+            }
+            return onlyExtensionList;
+        }
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (checkedListBox1.Items.Count == 0 && listView1.Items.Count != 0)
+            {
+                SortingDetails.StartSorting();
+                MessageBox.Show("Сортировка прошла успешно!");
+            }
+            else
+            {
+                MessageBox.Show("error!");
+            }
+        }
+        private void ListBoxFilling()
+        {
+            foreach (var item in RemovingRepetitionExtension(SortingDetails.AllFilesPath))
+            {
+                checkedListBox1.Items.Add(item);
+            }
+        }
         private void AddExtensionToListView(string strExten)
         {
             string[] row = { "Новая папка", strExten };
@@ -77,43 +109,13 @@ namespace desktopClear.UserControls.SortingControls
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            int arrLength = listView1.Items.Count;
-
-            if (arrLength != 0)
-            {
-                for (int i = 0; i < arrLength; i++)
-                {
-                    string extensionName = GetExtensionFromListView(i);
-                    SortingDetails.AddNewExtensionName(extensionName);
-                    string folderName = listView1.Items[i].SubItems[0].Text;
-                    SortingDetails.AddNewFolderName(folderName);
-                }
-                listView1.Enabled = false; 
-            }
-            else
-            {
-                MessageBox.Show("Добавте сортировачные папки!");
-            }
-        }
+        
 
         private string GetExtensionFromListView(int rowCount) 
         {
             return listView1.Items[rowCount].SubItems[1].Text;
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            if (checkedListBox1.Items.Count == 0 && listView1.Items.Count != 0)
-            {
-                SortingDetails.StartSorting();
-                MessageBox.Show("Сортировка прошла успешно!"); 
-            }
-            else
-            {
-                MessageBox.Show("error!");
-            }
-        }
+        
     }
 }

@@ -50,7 +50,6 @@ namespace desktopClear
             this.button1 = new System.Windows.Forms.Button();
             this.btnHelp = new System.Windows.Forms.Button();
             this.panelToolsSubmenu = new System.Windows.Forms.Panel();
-            this.btnEqualizer = new System.Windows.Forms.Button();
             this.panelSideMenu = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panelPlaylistSubmenu.SuspendLayout();
@@ -225,7 +224,7 @@ namespace desktopClear
             this.btnPlaylist.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnPlaylist.Size = new System.Drawing.Size(233, 45);
             this.btnPlaylist.TabIndex = 3;
-            this.btnPlaylist.Text = "Playlist management";
+            this.btnPlaylist.Text = "Управление данными";
             this.btnPlaylist.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnPlaylist.UseVisualStyleBackColor = true;
             this.btnPlaylist.Click += new System.EventHandler(this.btnPlaylist_Click);
@@ -257,12 +256,12 @@ namespace desktopClear
             this.btnTools.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTools.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTools.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnTools.Location = new System.Drawing.Point(0, 523);
+            this.btnTools.Location = new System.Drawing.Point(0, 478);
             this.btnTools.Name = "btnTools";
             this.btnTools.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnTools.Size = new System.Drawing.Size(233, 45);
             this.btnTools.TabIndex = 6;
-            this.btnTools.Text = "Tools";
+            this.btnTools.Text = "Инструменты";
             this.btnTools.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnTools.UseVisualStyleBackColor = true;
             this.btnTools.Click += new System.EventHandler(this.btnTools_Click);
@@ -338,12 +337,12 @@ namespace desktopClear
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.Gainsboro;
-            this.button1.Location = new System.Drawing.Point(0, 778);
+            this.button1.Location = new System.Drawing.Point(0, 733);
             this.button1.Name = "button1";
             this.button1.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.button1.Size = new System.Drawing.Size(233, 45);
             this.button1.TabIndex = 9;
-            this.button1.Text = "Exit";
+            this.button1.Text = "Выход";
             this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -355,12 +354,12 @@ namespace desktopClear
             this.btnHelp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnHelp.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnHelp.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnHelp.Location = new System.Drawing.Point(0, 733);
+            this.btnHelp.Location = new System.Drawing.Point(0, 688);
             this.btnHelp.Name = "btnHelp";
             this.btnHelp.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnHelp.Size = new System.Drawing.Size(233, 45);
             this.btnHelp.TabIndex = 8;
-            this.btnHelp.Text = "Help";
+            this.btnHelp.Text = "Помощь";
             this.btnHelp.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnHelp.UseVisualStyleBackColor = true;
             // 
@@ -372,26 +371,10 @@ namespace desktopClear
             this.panelToolsSubmenu.Controls.Add(this.button14);
             this.panelToolsSubmenu.Controls.Add(this.button15);
             this.panelToolsSubmenu.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelToolsSubmenu.Location = new System.Drawing.Point(0, 568);
+            this.panelToolsSubmenu.Location = new System.Drawing.Point(0, 523);
             this.panelToolsSubmenu.Name = "panelToolsSubmenu";
             this.panelToolsSubmenu.Size = new System.Drawing.Size(233, 165);
             this.panelToolsSubmenu.TabIndex = 7;
-            // 
-            // btnEqualizer
-            // 
-            this.btnEqualizer.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnEqualizer.FlatAppearance.BorderSize = 0;
-            this.btnEqualizer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEqualizer.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEqualizer.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnEqualizer.Location = new System.Drawing.Point(0, 478);
-            this.btnEqualizer.Name = "btnEqualizer";
-            this.btnEqualizer.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnEqualizer.Size = new System.Drawing.Size(233, 45);
-            this.btnEqualizer.TabIndex = 5;
-            this.btnEqualizer.Text = "Equalizer";
-            this.btnEqualizer.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEqualizer.UseVisualStyleBackColor = true;
             // 
             // panelSideMenu
             // 
@@ -401,7 +384,6 @@ namespace desktopClear
             this.panelSideMenu.Controls.Add(this.btnHelp);
             this.panelSideMenu.Controls.Add(this.panelToolsSubmenu);
             this.panelSideMenu.Controls.Add(this.btnTools);
-            this.panelSideMenu.Controls.Add(this.btnEqualizer);
             this.panelSideMenu.Controls.Add(this.panelPlaylistSubmenu);
             this.panelSideMenu.Controls.Add(this.btnPlaylist);
             this.panelSideMenu.Controls.Add(this.panelMediaSubmenu);
@@ -466,7 +448,6 @@ namespace desktopClear
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnHelp;
         private System.Windows.Forms.Panel panelToolsSubmenu;
-        private System.Windows.Forms.Button btnEqualizer;
         private System.Windows.Forms.Panel panelSideMenu;
         private System.Windows.Forms.Panel panel1;
     }
