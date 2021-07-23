@@ -20,12 +20,12 @@ namespace desktopClear.UserControls
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog();
-            folderBrowserDialog.Description = "Выберите папку для размещения отсортированых файлов";
-            if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
+            FolderBrowserDialog sortedFileStorage = new FolderBrowserDialog();
+            sortedFileStorage.Description = "Выберите папку для размещения отсортированых файлов";
+            if (sortedFileStorage.ShowDialog() == DialogResult.OK)
             {
-                Directory.CreateDirectory(folderBrowserDialog.SelectedPath + "\\Sorting Files");
-                textBox1.Text = folderBrowserDialog.SelectedPath + "\\Sorting Files";
+                Directory.CreateDirectory(sortedFileStorage.SelectedPath + "\\Sorting Files");
+                textBox1.Text = sortedFileStorage.SelectedPath + "\\Sorting Files";
             }
         }
 
