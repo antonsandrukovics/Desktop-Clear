@@ -1,13 +1,6 @@
 ﻿using desktopClear.UserControls.SortingControls;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace desktopClear.UserControls
@@ -25,14 +18,14 @@ namespace desktopClear.UserControls
             if (sortedFileStorage.ShowDialog() == DialogResult.OK)
             {
                 Directory.CreateDirectory(sortedFileStorage.SelectedPath + "\\Sorting Files");
-                textBox1.Text = sortedFileStorage.SelectedPath + "\\Sorting Files";
+                sortedFilesStorageTextbox.Text = sortedFileStorage.SelectedPath + "\\Sorting Files";
             }
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\Sorting Files";
-            textBox1.Text = desktopPath;
+            sortedFilesStorageTextbox.Text = desktopPath;
             try
             {
                 if (!Directory.Exists(desktopPath))
@@ -47,7 +40,7 @@ namespace desktopClear.UserControls
                         MessageBoxIcon.Warning);
                     if (dialogResult == DialogResult.No)
                     {
-                        textBox1.Clear();
+                        sortedFilesStorageTextbox.Clear();
                     }
                 }
             }
@@ -59,11 +52,11 @@ namespace desktopClear.UserControls
 
         private void button3_Click(object sender, EventArgs e)
         {
-            if (Directory.Exists(textBox1.Text))
+            if (Directory.Exists(sortedFilesStorageTextbox.Text))
             {
-                SortingDetails.FolderForSortedFiles = textBox1.Text;
+                SortingDetails.FolderForSortedFiles = sortedFilesStorageTextbox.Text;
                 SortingFilesControls sortingFilesControls = new SortingFilesControls();
-                MainControlClass.showControl(sortingFilesControls, panel1); 
+                MainControlClass.showControl(sortingFilesControls, sortingControlPanel); 
             }
             else
             {

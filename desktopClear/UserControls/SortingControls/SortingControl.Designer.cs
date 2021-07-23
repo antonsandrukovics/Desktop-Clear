@@ -29,94 +29,94 @@ namespace desktopClear.UserControls
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.mainTitle = new System.Windows.Forms.Label();
+            this.sortedFilesStorageTextbox = new System.Windows.Forms.TextBox();
+            this.reviewBtn = new System.Windows.Forms.Button();
+            this.descriptionText = new System.Windows.Forms.Label();
+            this.defaultBtn = new System.Windows.Forms.Button();
+            this.furtherBtn = new System.Windows.Forms.Button();
+            this.sortingControlPanel = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
-            // label1
+            // mainTitle
             // 
-            this.label1.Font = new System.Drawing.Font("Microsoft Uighur", 29.25F, System.Drawing.FontStyle.Bold);
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(-2, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(526, 123);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Выберите место хранения отсортированых файлов";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.mainTitle.Font = new System.Drawing.Font("Microsoft Uighur", 29.25F, System.Drawing.FontStyle.Bold);
+            this.mainTitle.ForeColor = System.Drawing.Color.White;
+            this.mainTitle.Location = new System.Drawing.Point(-2, 9);
+            this.mainTitle.Name = "mainTitle";
+            this.mainTitle.Size = new System.Drawing.Size(526, 123);
+            this.mainTitle.TabIndex = 0;
+            this.mainTitle.Text = "Выберите место хранения отсортированых файлов";
+            this.mainTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // textBox1
+            // sortedFilesStorageTextbox
             // 
-            this.textBox1.Location = new System.Drawing.Point(94, 240);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(352, 20);
-            this.textBox1.TabIndex = 1;
+            this.sortedFilesStorageTextbox.Location = new System.Drawing.Point(94, 240);
+            this.sortedFilesStorageTextbox.Name = "sortedFilesStorageTextbox";
+            this.sortedFilesStorageTextbox.Size = new System.Drawing.Size(352, 20);
+            this.sortedFilesStorageTextbox.TabIndex = 1;
             // 
-            // button1
+            // reviewBtn
             // 
-            this.button1.Location = new System.Drawing.Point(332, 266);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(114, 20);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Обзор...";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.reviewBtn.Location = new System.Drawing.Point(332, 266);
+            this.reviewBtn.Name = "reviewBtn";
+            this.reviewBtn.Size = new System.Drawing.Size(114, 20);
+            this.reviewBtn.TabIndex = 2;
+            this.reviewBtn.Text = "Обзор...";
+            this.reviewBtn.UseVisualStyleBackColor = true;
+            this.reviewBtn.Click += new System.EventHandler(this.button1_Click);
             // 
-            // label2
+            // descriptionText
             // 
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(117, 162);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(300, 75);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Выберите место на вашем диске для хранения отсортированых файлов. Место хранения " +
+            this.descriptionText.ForeColor = System.Drawing.Color.White;
+            this.descriptionText.Location = new System.Drawing.Point(117, 162);
+            this.descriptionText.Name = "descriptionText";
+            this.descriptionText.Size = new System.Drawing.Size(300, 75);
+            this.descriptionText.TabIndex = 3;
+            this.descriptionText.Text = "Выберите место на вашем диске для хранения отсортированых файлов. Место хранения " +
     "по умолчанию является папка \'Sorting Files\' на рабочем столе компьютера";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.descriptionText.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // button2
+            // defaultBtn
             // 
-            this.button2.Location = new System.Drawing.Point(94, 266);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(114, 20);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "По умолчанию";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.defaultBtn.Location = new System.Drawing.Point(94, 266);
+            this.defaultBtn.Name = "defaultBtn";
+            this.defaultBtn.Size = new System.Drawing.Size(114, 20);
+            this.defaultBtn.TabIndex = 4;
+            this.defaultBtn.Text = "По умолчанию";
+            this.defaultBtn.UseVisualStyleBackColor = true;
+            this.defaultBtn.Click += new System.EventHandler(this.button2_Click);
             // 
-            // button3
+            // furtherBtn
             // 
-            this.button3.Location = new System.Drawing.Point(362, 337);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(114, 20);
-            this.button3.TabIndex = 5;
-            this.button3.Text = "Далее";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.furtherBtn.Location = new System.Drawing.Point(362, 337);
+            this.furtherBtn.Name = "furtherBtn";
+            this.furtherBtn.Size = new System.Drawing.Size(114, 20);
+            this.furtherBtn.TabIndex = 5;
+            this.furtherBtn.Text = "Далее";
+            this.furtherBtn.UseVisualStyleBackColor = true;
+            this.furtherBtn.Click += new System.EventHandler(this.button3_Click);
             // 
-            // panel1
+            // sortingControlPanel
             // 
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(527, 399);
-            this.panel1.TabIndex = 6;
+            this.sortingControlPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.sortingControlPanel.Location = new System.Drawing.Point(0, 0);
+            this.sortingControlPanel.Name = "sortingControlPanel";
+            this.sortingControlPanel.Size = new System.Drawing.Size(527, 399);
+            this.sortingControlPanel.TabIndex = 6;
             // 
             // SortingControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.furtherBtn);
+            this.Controls.Add(this.defaultBtn);
+            this.Controls.Add(this.descriptionText);
+            this.Controls.Add(this.reviewBtn);
+            this.Controls.Add(this.sortedFilesStorageTextbox);
+            this.Controls.Add(this.mainTitle);
+            this.Controls.Add(this.sortingControlPanel);
             this.Name = "SortingControl";
             this.Size = new System.Drawing.Size(527, 399);
             this.ResumeLayout(false);
@@ -126,12 +126,12 @@ namespace desktopClear.UserControls
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label mainTitle;
+        private System.Windows.Forms.TextBox sortedFilesStorageTextbox;
+        private System.Windows.Forms.Button reviewBtn;
+        private System.Windows.Forms.Label descriptionText;
+        private System.Windows.Forms.Button defaultBtn;
+        private System.Windows.Forms.Button furtherBtn;
+        private System.Windows.Forms.Panel sortingControlPanel;
     }
 }
