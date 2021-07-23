@@ -12,6 +12,7 @@ namespace desktopClear.UserControls
 {
     public partial class DetailsControl : UserControl
     {
+        
         public DetailsControl()
         {
             InitializeComponent();

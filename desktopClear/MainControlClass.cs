@@ -9,16 +9,16 @@ namespace desktopClear
 {
     class MainControlClass
     {
-        public static void  showControl(Control control, Control Content)
+        public static void  showControl(Control control, Control content)
         {
-            Content.Controls.Clear();
+            content.Controls.Clear();
 
             control.Dock = DockStyle.Fill;
             control.BringToFront();
-            Content.BringToFront();
+            content.BringToFront();
             control.Focus();
 
-            Content.Controls.Add(control);
+            content.Controls.Add(control);
         }
     }
 }

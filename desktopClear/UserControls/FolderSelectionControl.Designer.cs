@@ -29,55 +29,55 @@ namespace desktopClear
         /// </summary>
         private void InitializeComponent()
         {
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
+            this.saveSelectedItemsBtn = new System.Windows.Forms.Button();
+            this.deleteSelectedObjectBtn = new System.Windows.Forms.Button();
+            this.selectAllBtn = new System.Windows.Forms.Button();
+            this.filesNamesCheckedListBox = new System.Windows.Forms.CheckedListBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.buttonChoseDirectory = new System.Windows.Forms.Button();
+            this.сhoseDirectoryBtn = new System.Windows.Forms.Button();
             this.textBoxDirectoryName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // button3
+            // saveSelectedItemsBtn
             // 
-            this.button3.Location = new System.Drawing.Point(312, 316);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(164, 55);
-            this.button3.TabIndex = 21;
-            this.button3.Text = "Сохранить выбранные элементы";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.saveSelectedItemsBtn.Location = new System.Drawing.Point(312, 316);
+            this.saveSelectedItemsBtn.Name = "saveSelectedItemsBtn";
+            this.saveSelectedItemsBtn.Size = new System.Drawing.Size(164, 55);
+            this.saveSelectedItemsBtn.TabIndex = 21;
+            this.saveSelectedItemsBtn.Text = "Сохранить выбранные элементы";
+            this.saveSelectedItemsBtn.UseVisualStyleBackColor = true;
+            this.saveSelectedItemsBtn.Click += new System.EventHandler(this.button3_Click);
             // 
-            // button2
+            // deleteSelectedObjectBtn
             // 
-            this.button2.Location = new System.Drawing.Point(312, 141);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(164, 38);
-            this.button2.TabIndex = 20;
-            this.button2.Text = "Удалить выбранный элемент";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.deleteSelectedObjectBtn.Location = new System.Drawing.Point(312, 141);
+            this.deleteSelectedObjectBtn.Name = "deleteSelectedObjectBtn";
+            this.deleteSelectedObjectBtn.Size = new System.Drawing.Size(164, 38);
+            this.deleteSelectedObjectBtn.TabIndex = 20;
+            this.deleteSelectedObjectBtn.Text = "Удалить выбранный элемент";
+            this.deleteSelectedObjectBtn.UseVisualStyleBackColor = true;
+            this.deleteSelectedObjectBtn.Click += new System.EventHandler(this.button2_Click);
             // 
-            // button1
+            // selectAllBtn
             // 
-            this.button1.Location = new System.Drawing.Point(312, 112);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(165, 23);
-            this.button1.TabIndex = 19;
-            this.button1.Text = "Выделить все";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.selectAllBtn.Location = new System.Drawing.Point(312, 112);
+            this.selectAllBtn.Name = "selectAllBtn";
+            this.selectAllBtn.Size = new System.Drawing.Size(165, 23);
+            this.selectAllBtn.TabIndex = 19;
+            this.selectAllBtn.Text = "Выделить все";
+            this.selectAllBtn.UseVisualStyleBackColor = true;
+            this.selectAllBtn.Click += new System.EventHandler(this.button1_Click);
             // 
-            // checkedListBox1
+            // filesNamesCheckedListBox
             // 
-            this.checkedListBox1.CheckOnClick = true;
-            this.checkedListBox1.FormattingEnabled = true;
-            this.checkedListBox1.Location = new System.Drawing.Point(42, 112);
-            this.checkedListBox1.MaximumSize = new System.Drawing.Size(171, 319);
-            this.checkedListBox1.Name = "checkedListBox1";
-            this.checkedListBox1.Size = new System.Drawing.Size(171, 259);
-            this.checkedListBox1.TabIndex = 18;
+            this.filesNamesCheckedListBox.CheckOnClick = true;
+            this.filesNamesCheckedListBox.FormattingEnabled = true;
+            this.filesNamesCheckedListBox.Location = new System.Drawing.Point(42, 112);
+            this.filesNamesCheckedListBox.MaximumSize = new System.Drawing.Size(171, 319);
+            this.filesNamesCheckedListBox.Name = "filesNamesCheckedListBox";
+            this.filesNamesCheckedListBox.Size = new System.Drawing.Size(171, 259);
+            this.filesNamesCheckedListBox.TabIndex = 18;
             // 
             // label1
             // 
@@ -90,15 +90,15 @@ namespace desktopClear
             this.label1.TabIndex = 17;
             this.label1.Text = "Выберете папку для работы";
             // 
-            // buttonChoseDirectory
+            // сhoseDirectoryBtn
             // 
-            this.buttonChoseDirectory.Location = new System.Drawing.Point(421, 75);
-            this.buttonChoseDirectory.Name = "buttonChoseDirectory";
-            this.buttonChoseDirectory.Size = new System.Drawing.Size(56, 20);
-            this.buttonChoseDirectory.TabIndex = 16;
-            this.buttonChoseDirectory.Text = "Обзор...";
-            this.buttonChoseDirectory.UseVisualStyleBackColor = true;
-            this.buttonChoseDirectory.Click += new System.EventHandler(this.buttonChoseDirectory_Click);
+            this.сhoseDirectoryBtn.Location = new System.Drawing.Point(421, 75);
+            this.сhoseDirectoryBtn.Name = "сhoseDirectoryBtn";
+            this.сhoseDirectoryBtn.Size = new System.Drawing.Size(56, 20);
+            this.сhoseDirectoryBtn.TabIndex = 16;
+            this.сhoseDirectoryBtn.Text = "Обзор...";
+            this.сhoseDirectoryBtn.UseVisualStyleBackColor = true;
+            this.сhoseDirectoryBtn.Click += new System.EventHandler(this.buttonChoseDirectory_Click);
             // 
             // textBoxDirectoryName
             // 
@@ -124,12 +124,12 @@ namespace desktopClear
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.checkedListBox1);
+            this.Controls.Add(this.saveSelectedItemsBtn);
+            this.Controls.Add(this.deleteSelectedObjectBtn);
+            this.Controls.Add(this.selectAllBtn);
+            this.Controls.Add(this.filesNamesCheckedListBox);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.buttonChoseDirectory);
+            this.Controls.Add(this.сhoseDirectoryBtn);
             this.Controls.Add(this.textBoxDirectoryName);
             this.Name = "FolderSelectionControl";
             this.Size = new System.Drawing.Size(527, 399);
@@ -140,12 +140,12 @@ namespace desktopClear
 
         #endregion
 
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
-        protected System.Windows.Forms.CheckedListBox checkedListBox1;
+        private System.Windows.Forms.Button saveSelectedItemsBtn;
+        private System.Windows.Forms.Button deleteSelectedObjectBtn;
+        private System.Windows.Forms.Button selectAllBtn;
+        protected System.Windows.Forms.CheckedListBox filesNamesCheckedListBox;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button buttonChoseDirectory;
+        private System.Windows.Forms.Button сhoseDirectoryBtn;
         private System.Windows.Forms.TextBox textBoxDirectoryName;
         private System.Windows.Forms.Label label2;
     }

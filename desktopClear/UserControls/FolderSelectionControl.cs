@@ -1,20 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace desktopClear
 {
     public partial class FolderSelectionControl : UserControl
     {
-        private List<string> allFilesNameList;
+        private List<string> filesNamesList;
         private List<string> chekedItemList = new List<string>();
+
         public FolderSelectionControl()
         {
             InitializeComponent();
@@ -28,23 +24,25 @@ namespace desktopClear
             {
                 textBoxDirectoryName.Text = folderBrowserDialog.SelectedPath;
 
-                allFilesNameList = Directory.GetFiles(folderBrowserDialog.SelectedPath)
-                    .Concat(Directory.GetDirectories(folderBrowserDialog.SelectedPath)).ToList(); //Concat files path name and folder path name to list
+                //Concat files path name and folder path name to list
+                filesNamesList = Directory.GetFiles(folderBrowserDialog.SelectedPath)
+                    .Concat(Directory.GetDirectories(folderBrowserDialog.SelectedPath)).ToList(); 
 
-                FillTheChekedListBox(allFilesNameList);
+                FillTheChekedListBox(filesNamesList);
             }
         }
         private void FillTheChekedListBox(List<string> arrWithFileName)
         {
-            checkedListBox1.Items.Clear();
+            filesNamesCheckedListBox.Items.Clear();
             foreach (var file in arrWithFileName)
             {
-                checkedListBox1.Items.Add(Path.GetFileName(file));
+                filesNamesCheckedListBox.Items.Add(Path.GetFileName(file));
             }
         }
+
         private void button1_Click(object sender, EventArgs e)
         {
-            if (allFilesNameList != null && allFilesNameList.Count > 0)
+            if (filesNamesList != null && filesNamesList.Count > 0)
             {
                 SelectAllInCheckBoxList();
             }
@@ -55,14 +53,15 @@ namespace desktopClear
         }
         private void SelectAllInCheckBoxList()
         {
-            for (int i = 0; i < checkedListBox1.Items.Count; i++)
+            for (int i = 0; i < filesNamesCheckedListBox.Items.Count; i++)
             {
-                checkedListBox1.SetItemChecked(i, true);
+                filesNamesCheckedListBox.SetItemChecked(i, true);
             }
         }
+
         private void button2_Click(object sender, EventArgs e)
         {
-            if (checkedListBox1.CheckedItems.Count > 0)
+            if (filesNamesCheckedListBox.CheckedItems.Count > 0)
             {
                 DialogResult result = MessageBox.Show(
                     "Вы действительно хотите удалить выбранные элементы?",
@@ -82,26 +81,25 @@ namespace desktopClear
                 MessageBox.Show("Выберите элементы для удаления!!!");
             }
         }
-
         private void DeleteSelectedItems()
         {
             List<string> itemsToRemove = new List<string>();
-            foreach (var item in checkedListBox1.CheckedItems)
+            foreach (var item in filesNamesCheckedListBox.CheckedItems)
             {
-                for (int j = 0; j < allFilesNameList.Count; j++)
+                for (int j = 0; j < filesNamesList.Count; j++)
                 {
-                    if (item.ToString() == Path.GetFileName(allFilesNameList[j]))
+                    if (item.ToString() == Path.GetFileName(filesNamesList[j]))
                     {
                         try
                         {
-                            if (Directory.Exists(allFilesNameList[j]))
+                            if (Directory.Exists(filesNamesList[j]))
                             {
-                                Directory.Delete(allFilesNameList[j]);
+                                Directory.Delete(filesNamesList[j]);
                                 itemsToRemove.Add(item.ToString());
                             }
-                            if (File.Exists(allFilesNameList[j]))
+                            if (File.Exists(filesNamesList[j]))
                             {
-                                File.Delete(allFilesNameList[j]);
+                                File.Delete(filesNamesList[j]);
                                 itemsToRemove.Add(item.ToString());
                             }
                         }
@@ -118,45 +116,48 @@ namespace desktopClear
         {
             foreach (var item in itemsToRemove)
             {
-                checkedListBox1.Items.Remove(item);
+                filesNamesCheckedListBox.Items.Remove(item);
             }
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            if (checkedListBox1.CheckedItems.Count != checkedListBox1.Items.Count)
+            if (filesNamesCheckedListBox.CheckedItems.Count != filesNamesCheckedListBox.Items.Count)
             {
-                foreach (var item in checkedListBox1.CheckedItems)
+                foreach (var item in filesNamesCheckedListBox.CheckedItems)
                 {
                     chekedItemList.Add(item.ToString());
                 }
                 SwitchOffAllObjects();
                 SortingDetails.AllFilesPath = GetUnChekedItemList();
-                MessageBox.Show($"Выбранные элементы сохранены! Пожалуйста настройте сортровку!\nЧисло файлов в списке: {checkedListBox1.Items.Count}");
+                MessageBox.Show($"Выбранные элементы сохранены! " +
+                    $"Пожалуйста настройте сортровку!\n" +
+                    $"Число файлов в списке: {filesNamesCheckedListBox.Items.Count}");
             }
             else
             {
-                MessageBox.Show("Вы выбрали все файлы, количество файлов для сортировки ровно нулю!");
+                MessageBox.Show("Вы выбрали все файлы, " +
+                    "количество файлов для сортировки ровно нулю!");
             }
         }
         private void SwitchOffAllObjects()
         {
-            button3.Enabled = false;
-            button2.Enabled = false;
-            button1.Enabled = false;
-            checkedListBox1.Enabled = false;
-            buttonChoseDirectory.Enabled = false;
+            saveSelectedItemsBtn.Enabled = false;
+            deleteSelectedObjectBtn.Enabled = false;
+            selectAllBtn.Enabled = false;
+            filesNamesCheckedListBox.Enabled = false;
+            сhoseDirectoryBtn.Enabled = false;
             textBoxDirectoryName.Enabled = false;
         }
         private List<string> GetUnChekedItemList()
         {
             List<string> unChekedList = new List<string>();
 
-            for (int i = 0; i < checkedListBox1.Items.Count; i++)
+            for (int i = 0; i < filesNamesCheckedListBox.Items.Count; i++)
             {
-                if (!checkedListBox1.CheckedItems.Contains(checkedListBox1.Items[i]))
+                if (!filesNamesCheckedListBox.CheckedItems.Contains(filesNamesCheckedListBox.Items[i]))
                 {
-                    unChekedList.Add(allFilesNameList[i]);
+                    unChekedList.Add(filesNamesList[i]);
                 }
             }
             return unChekedList;

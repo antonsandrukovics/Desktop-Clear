@@ -11,6 +11,7 @@ namespace desktopClear.UserControls
         {
             InitializeComponent();
         }
+
         private void button1_Click(object sender, EventArgs e)
         {
             FolderBrowserDialog sortedFileStorage = new FolderBrowserDialog();
@@ -24,17 +25,23 @@ namespace desktopClear.UserControls
 
         private void button2_Click(object sender, EventArgs e)
         {
-            string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\Sorting Files";
-            sortedFilesStorageTextbox.Text = desktopPath;
+            string standardPathForSorteredFiles = 
+                Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\Sorting Files";
+            sortedFilesStorageTextbox.Text = standardPathForSorteredFiles;
+            CreateDirectory(standardPathForSorteredFiles);
+        }
+        private void CreateDirectory(string directoryPath)
+        {
             try
             {
-                if (!Directory.Exists(desktopPath))
+                if (!Directory.Exists(directoryPath))
                 {
-                    Directory.CreateDirectory(desktopPath);
+                    Directory.CreateDirectory(directoryPath);
                 }
                 else
                 {
-                    DialogResult dialogResult = MessageBox.Show("Папка по умолчанию уже присутствует! Хотите выбрать ее для сохранения файлов?",
+                    DialogResult dialogResult = MessageBox.Show("Папка по умолчанию уже присутствует! " +
+                        "Хотите выбрать ее для сохранения файлов?",
                         "Предупреждение",
                         MessageBoxButtons.YesNo,
                         MessageBoxIcon.Warning);
